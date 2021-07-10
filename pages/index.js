@@ -18,8 +18,33 @@ const DUMMY_MEETUPS = [
   },
 ];
 
-function HomePage() {
-  return <MeetupList meetups={DUMMY_MEETUPS} />;
+function HomePage(props) {
+  // csr concept
+  // const [loadedMeetups, setLoadedMeetups] = useState([]);
+  // useEffect(() => {
+  //   setLoadedMeetups(DUMMY_MEETUPS);
+  // }, []);
+  return <MeetupList meetups={props.meetups} />;
+}
+// ssr concept
+// export async function getServerSideProps(context) {
+//   const req = context.req;
+//   const res = context.res;
+//   return {
+//     props: {
+//       meetups: DUMMY_MEETUPS,
+//     },
+//   };
+// }
+
+// ssg concept
+export async function getStaticProps() {
+  return {
+    props: {
+      meetups: DUMMY_MEETUPS,
+    },
+    revalidate: 1,
+  };
 }
 
 export default HomePage;
