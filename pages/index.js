@@ -1,25 +1,8 @@
+import Head from 'next/head';
 import { MongoClient } from 'mongodb';
 import URL from '../config/db.config';
-
 import MeetupList from '../components/meetups/MeetupList';
-const DUMMY_MEETUPS = [
-  {
-    id: 'm1',
-    title: 'First Meetup',
-    image:
-      'https://www.expatica.com/app/uploads/sites/10/2014/05/best-place-to-live-in-uk.jpg',
-    address: 'BLAADADAD',
-    description: 'vddccdc',
-  },
-  {
-    id: 'm2',
-    title: 'Two Meetup',
-    image:
-      'https://images.movehub.com/wp-content/uploads/2017/09/14131021/Cambridge-2.jpg',
-    address: 'BLAADADAdsdsdD',
-    description: 'vddccdsdsdc',
-  },
-];
+import { Fragment } from 'react';
 
 function HomePage(props) {
   // csr concept
@@ -27,7 +10,15 @@ function HomePage(props) {
   // useEffect(() => {
   //   setLoadedMeetups(DUMMY_MEETUPS);
   // }, []);
-  return <MeetupList meetups={props.meetups} />;
+  return (
+    <Fragment>
+      <Head>
+        <title>Fikri Dzakir - Learn NextJs</title>
+        <meta name="description" content="Learn Anything About React Nextjs" />
+      </Head>
+      <MeetupList meetups={props.meetups} />;
+    </Fragment>
+  );
 }
 // ssr concept
 // export async function getServerSideProps(context) {
