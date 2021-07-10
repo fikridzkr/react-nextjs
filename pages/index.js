@@ -14,7 +14,7 @@ function HomePage(props) {
     <Fragment>
       <Head>
         <title>Fikri Dzakir - Learn NextJs</title>
-        <meta name="description" content="Learn Anything About React Nextjs" />
+        <meta name="description" content="Learn Anything About ReactNextjs" />
       </Head>
       <MeetupList meetups={props.meetups} />;
     </Fragment>
